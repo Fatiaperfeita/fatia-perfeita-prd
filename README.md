@@ -20,17 +20,20 @@ Sistema web para gerenciar **custos, produção e pedidos** de bolos, substituin
 | Repositório | Descrição |
 |-------------|-----------|
 | [`fatia-perfeita-prd`](https://github.com/fatia-perfeita/fatia-perfeita-prd) | Documentação completa (PRD, mockups, schemas) |
-
+| [`fatia-perfeita-web`](https://github.com/fatia-perfeita/fatia-perfeita-web) | Aplicação web (frontend + backend) |
+| [`fatia-perfeita-n8n`](https://github.com/fatia-perfeita/fatia-perfeita-n8n) | Workflows do N8N para automação |
+| [`fatia-perfeita-relatorios`](https://github.com/fatia-perfeita/fatia-perfeita-relatorios) | Relatórios e analytics |
 
 ## 🗂️ Documentação
 
 - [PRD - Visão Geral](PRD/01-visao-geral.md)
-
+- [PRD - Escopo](PRD/02-escopo.md)
+- [PRD - Requisitos](PRD/03-requisitos.md)
 
 ## 📅 Roadmap
 
 ### Versão 1.0 (Atual)
-- [x] Cadastro de insumos
+- [] Cadastro de insumos
 - [ ] Cadastro de produtos com receitas
 - [ ] Tela de produção
 - [ ] Sistema de pedidos
@@ -51,4 +54,4 @@ Sistema web para gerenciar **custos, produção e pedidos** de bolos, substituin
 
 ## 📝 Licença
 
-MIT License
+Todos os direitos reservados
