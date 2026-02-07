@@ -33,7 +33,7 @@ Sistema web para gerenciar **custos, produção e pedidos** de bolos, substituin
 ## 📅 Roadmap
 
 ### Versão 1.0 (Atual)
-- [] Cadastro de insumos
+- [ ] Cadastro de insumos
 - [ ] Cadastro de produtos com receitas
 - [ ] Tela de produção
 - [ ] Sistema de pedidos
