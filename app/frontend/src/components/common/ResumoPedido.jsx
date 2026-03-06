@@ -7,7 +7,7 @@ const ResumoPedido = ({
     onAddBolo,
     onRemoveBolo,
     subtotal,
-    adicionalEntrega,
+    adicionalEmbalagem,
     total,
     onBack,
     onSave
@@ -38,9 +38,9 @@ const ResumoPedido = ({
                                 <span className="font-medium text-blue-700/70">WhatsApp:</span>
                                 <span className="font-bold">{cliente.whatsapp}</span>
 
-                                <span className="font-medium text-blue-700/70">Entrega:</span>
+                                <span className="font-medium text-blue-700/70">Embalagem:</span>
                                 <span className="font-bold">
-                                    {cliente.entrega ? `Sim (+R$ ${adicionalEntrega.toFixed(0)},00)` : 'Não'}
+                                    {cliente.embalagem ? `Sim (+R$ ${adicionalEmbalagem.toFixed(0)},00)` : 'Não'}
                                 </span>
                             </div>
                         </section>
@@ -114,10 +114,10 @@ const ResumoPedido = ({
                                     <span className="font-bold text-slate-700">{formatarMoeda(subtotal)}</span>
                                 </div>
 
-                                {cliente.entrega && (
+                                {cliente.embalagem && (
                                     <div className="flex justify-between items-center text-[15px] text-[#6B7280]">
-                                        <span className="font-medium">Taxa de Entrega:</span>
-                                        <span className="font-bold text-slate-700">+{formatarMoeda(adicionalEntrega)}</span>
+                                        <span className="font-medium">Embalagem Protetora:</span>
+                                        <span className="font-bold text-slate-700">+{formatarMoeda(adicionalEmbalagem)}</span>
                                     </div>
                                 )}
 

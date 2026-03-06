@@ -79,7 +79,7 @@ export const gerarMockPedidos = () => {
                 dataRetirada: dataStr,
                 horaRetirada: horaStr,
                 status: status,
-                entrega: Math.random() > 0.5,
+                embalagem: Math.random() > 0.5,
                 createdAt: new Date(Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000).toISOString()
             });
         }

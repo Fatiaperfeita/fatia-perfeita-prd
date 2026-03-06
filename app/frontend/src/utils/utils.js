@@ -51,10 +51,10 @@ export const calcularTotalPedido = (pedido) => {
         return sum + ((bolo.valorUnitario || bolo.valor || 0) * (bolo.quantidade || 1));
     }, 0);
 
-    const adicionalEntrega = cliente?.entrega || cliente?.uber ? ADICIONAIS.ENTREGA.valor : 0;
-    const total = subtotal + adicionalEntrega;
+    const adicionalEmbalagem = cliente?.embalagem ? ADICIONAIS.EMBALAGEM.valor : 0;
+    const total = subtotal + adicionalEmbalagem;
 
-    return { subtotal, adicionalEntrega, total };
+    return { subtotal, adicionalEmbalagem, total };
 };
 
 /**

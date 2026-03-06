@@ -49,7 +49,7 @@ export const TAMANHOS = [
 ];
 
 export const ADICIONAIS = {
-    ENTREGA: { nome: 'Entrega', valor: 3.00 }
+    EMBALAGEM: { nome: 'Embalagem', valor: 3.00 }
 };
 
 export const HORARIOS_DISPONIVEIS = [

@@ -47,7 +47,7 @@ const NovoPedidoWizard = ({ onSave }) => {
     const [cliente, setCliente] = useState({
         nome: '',
         whatsapp: '',
-        entrega: false
+        embalagem: false
     });
     const [bolos, setBolos] = useState([]);
     const [currentBolo, setCurrentBolo] = useState(initialBolo);
@@ -180,7 +180,7 @@ const NovoPedidoWizard = ({ onSave }) => {
     };
 
     // --- Totals Calculation ---
-    const { subtotal, adicionalEntrega, total } = calcularTotalPedido({
+    const { subtotal, adicionalEmbalagem, total } = calcularTotalPedido({
         cliente,
         bolos: [...bolos, currentBolo]
     });
@@ -212,24 +212,37 @@ const NovoPedidoWizard = ({ onSave }) => {
                                 />
                             </div>
                             <div className="bg-slate-50 md:bg-white p-4 md:p-6 rounded-2xl border border-slate-100 md:border-2 md:border-slate-100">
-                                <label className="block text-sm font-bold text-slate-500 mb-3 uppercase tracking-tighter">Deseja Entrega?</label>
-                                <div className="grid grid-cols-2 gap-3">
-                                    <button
-                                        onClick={() => handleClienteChange('entrega', false)}
-                                        className={`py-3 rounded-xl border-2 font-bold transition-all ${!cliente.entrega ? 'bg-white border-blue-500 text-blue-600 shadow-sm' : 'bg-transparent border-slate-200 text-slate-400'}`}
-                                    >
-                                        Não
-                                    </button>
-                                    <button
-                                        onClick={() => handleClienteChange('entrega', true)}
-                                        className={`py-3 rounded-xl border-2 font-bold transition-all ${cliente.entrega ? 'bg-white border-blue-500 text-blue-600 shadow-sm' : 'bg-transparent border-slate-200 text-slate-400'}`}
-                                    >
-                                        Sim (+ R$ 3,00)
-                                    </button>
-                                </div>
-                                <p className="mt-4 text-xs text-slate-400 leading-relaxed font-medium">
-                                    A entrega possui uma taxa fixa para qualquer região atendida.
+                                <label className="block text-sm font-black text-slate-800 mb-1 uppercase tracking-tighter">Embalagem protetora?</label>
+                                <p className="text-[11px] text-slate-500 mb-4 font-medium leading-tight">
+                                    Sacola para transporte seguro (+ R$ 3,00)
                                 </p>
+                                <div className="space-y-2.5">
+                                    <label
+                                        onClick={() => handleClienteChange('embalagem', false)}
+                                        className={`flex items-center space-x-3 p-3.5 rounded-xl border-2 cursor-pointer transition-all ${!cliente.embalagem ? 'bg-white border-blue-500 shadow-sm' : 'bg-transparent border-slate-100'}`}
+                                    >
+                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${!cliente.embalagem ? 'border-blue-500' : 'border-slate-300'}`}>
+                                            {!cliente.embalagem && <div className="w-2.5 h-2.5 bg-blue-500 rounded-full" />}
+                                        </div>
+                                        <div className="flex-1">
+                                            <span className={`block font-bold text-sm ${!cliente.embalagem ? 'text-blue-600' : 'text-slate-600'}`}>Não</span>
+                                            <span className="text-[10px] text-slate-400 font-medium">(cliente busca na loja)</span>
+                                        </div>
+                                    </label>
+
+                                    <label
+                                        onClick={() => handleClienteChange('embalagem', true)}
+                                        className={`flex items-center space-x-3 p-3.5 rounded-xl border-2 cursor-pointer transition-all ${cliente.embalagem ? 'bg-blue-50 border-blue-500 shadow-sm' : 'bg-transparent border-slate-100'}`}
+                                    >
+                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${cliente.embalagem ? 'border-blue-500' : 'border-slate-300'}`}>
+                                            {cliente.embalagem && <div className="w-2.5 h-2.5 bg-blue-500 rounded-full" />}
+                                        </div>
+                                        <div className="flex-1">
+                                            <span className={`block font-bold text-sm ${cliente.embalagem ? 'text-blue-600' : 'text-slate-600'}`}>Sim (+ R$ 3,00)</span>
+                                            <span className="text-[10px] text-blue-400 font-medium">(sacola protetora)</span>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -391,7 +404,7 @@ const NovoPedidoWizard = ({ onSave }) => {
                         onAddBolo={handleAddBolo}
                         onRemoveBolo={handleRemoveBolo}
                         subtotal={subtotal}
-                        adicionalEntrega={adicionalEntrega}
+                        adicionalEmbalagem={adicionalEmbalagem}
                         total={total}
                         onBack={prevStep}
                         onSave={handleSavePedido}
